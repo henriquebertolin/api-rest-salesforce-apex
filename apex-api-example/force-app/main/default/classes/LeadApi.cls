@@ -5,7 +5,7 @@ global with sharing class LeadApi {
     global static void getLeads() {
         RestResponse resultRest = RestContext.response;
 
-        List<Lead> leadsList = [SELECT Id, Name, Email, Phone from Lead];
+        List<Lead> leadsList = [SELECT Id, Name, Email from Lead];
         
         resultRest.responseBody = Blob.valueOf(JSON.serializePretty(leadsList));
         resultRest.statusCode = 200;
